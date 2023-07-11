@@ -7,17 +7,15 @@ class Solution {
         Stack<Character> stack = new Stack<>();
         
         for (int i = 0; i < length; i++) {
-            
-            // k > 0이면서 stack.peek()의 값이 더 크면 작은 값으로 바꿔주기
+        
+            // 중요한 왼쪽자리부터 채워 넣으며 값이 더 커서 변경이 필요한 부분을 k번 실행    
             while (!stack.isEmpty() && stack.peek() > num.charAt(i) && k > 0) {
                 stack.pop();
-                k--;
+                k--; 
             }
             
-            stack.push(num.charAt(i));
+            stack.push(num.charAt(i)); 
         }
-        
-        System.out.println(stack);
         
         while (k > 0) {
             stack.pop();
