@@ -11,8 +11,8 @@ public class Main {
         Stack<Top> stack = new Stack<>();
         StringBuilder sb = new StringBuilder();
 
-        for (int i = 0; i < N; i++) {
-            Top top = new Top(Integer.parseInt(st.nextToken()), i + 1);
+        for (int i = 1; i <= N; i++) {
+            Top top = new Top(Integer.parseInt(st.nextToken()), i);
 
             while (!stack.isEmpty() && stack.peek().height < top.height) {
                 stack.pop();
