@@ -1,35 +1,19 @@
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.Scanner;
+import java.util.*;
 
-public class Main {
-
-  public static void main(String[] args) {
-    Deque<Integer> deque = new LinkedList<>();
-    Scanner scanner = new Scanner(System.in);
-    int num = scanner.nextInt();
-    for (int i = 1; i <= num; i++) {
-      deque.addLast(i);
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Queue<Integer> myQueue = new LinkedList<>();
+        int N = sc.nextInt();
+        for (int i = 1; i <= N; i++) {
+            myQueue.add(i);
+        }
+        
+        while (myQueue.size() > 1) {
+            myQueue.poll();
+            myQueue.add(myQueue.poll());
+        }
+        
+        System.out.println(myQueue.poll());
     }
-
-    int count = 1;
-    while (true) {
-      if (deque.size() == 1) {
-        break;
-      }
-
-      if (count % 2 == 1) {
-        deque.removeFirst();
-        count++;
-      }
-
-      if (count % 2 == 0) {
-        Integer removeFirst = deque.removeFirst();
-        deque.addLast(removeFirst);
-        count--;
-      }
-    }
-
-    System.out.println(deque.removeLast());
-  }
 }
